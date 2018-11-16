@@ -10,15 +10,15 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp',(err,client)=>{
   console.log('Connected to Mongodb Server');
   const db=client.db('TodoApp')
 
-  // db.collection('Todos').insertOne({
-  //   text:'something to be added',
-  //   completed:false
-  // },(err,result)=>{
-  //   if(err){
-  //     return console.log('Not added to db',err)
-  //   }
-  //   console.log(JSON.stringify(result.ops,undefined,2));
-  // });
+  db.collection('Todos').insertOne({
+    text:'Shopping',
+    completed:false
+  },(err,result)=>{
+    if(err){
+      return console.log('Not added to db',err)
+    }
+    console.log(JSON.stringify(result.ops,undefined,2));
+  });
 
 
   db.collection('Users').insertOne({
