@@ -24,6 +24,8 @@ app.post('/todos',(req,res)=>{
 app.listen(3000,()=>{
   console.log('Listening to 3000')
 })
+
+module.exports={app}
 // var newTodo1= new Todo({text:"Shopping",completed:false,completedAt:23})
 //
 // newTodo1.save().then((doc)=>{
