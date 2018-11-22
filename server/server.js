@@ -26,22 +26,22 @@ app.get('/todos',(req,res)=>{
   Todo.find().then((todos)=>{
     res.send(todos)
   },(e)=>{
-    res.status(400).send(e)
+    res.sendStatus(400).send(e)
   })
 })
 
 app.get('/todos/:id',(req,res)=>{
   var id =req.params.id;
   if(!ObjectId.isValid(id)){
-    return res.send(404).send({})
+    return res.sendStatus(404).send({})
   }
   Todo.findById(id).then((todos)=>{
     if(!todos){
-      return res.send(404).send({})
+      return res.sendStatus(404).send({})
     }
-    res.send({todos})
+     res.send({todos})
     }).catch((e)=>{
-    res.status(400).send({})
+     res.status(400).send({})
   })
 })
 
